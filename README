@@ -1,9 +1,6 @@
 # Proof Of Stake Blockchain
 This project is a proof of concept of proof of stake algorithm used in Ethereum 2.0
 
-## Accompaining Article and Tutorial
-https://medium.com/coinmonks/implementing-proof-of-stake-e26fa5fb8716
-
 ## API Reference
 
 ### Nodes
@@ -39,16 +36,16 @@ Add prefix `/ico` before Nodes APIs for ICO's APIs
     
     1st Node
     ```
-    HTTP_PORT=3001 P2P_PORT=5001 npm run dev
+    HTTP_PORT=3001 P2P_PORT=6001 npm run dev
     ```
     2nd Node - add the 1st node as peer
     ```
-    HTTP_PORT=3002 P2P_PORT=5002 PEERS=wc://localhost:5001 npm run dev
+    HTTP_PORT=3002 P2P_PORT=6002 PEERS=wc://localhost:5001 npm run dev
     ```
 
     3rd Node - add the 1st and 2nd node as peer
     ```
-    HTTP_PORT=3003 P2P_PORT=5003 PEERS=wc://localhost:5001,wc://localhost:5002 npm run dev
+    HTTP_PORT=3003 P2P_PORT=6003 PEERS=wc://localhost:5001,wc://localhost:5002 npm run dev
     ```
 
 2. Initial they all have zero balance. Run an ICO and send then some coins. You may or may not add all of the nodes but atleast add one.
@@ -60,10 +57,10 @@ Add prefix `/ico` before Nodes APIs for ICO's APIs
 3. Open Postman and call `localhost://3000/ico/transact` with the following in the body. Note intial balance of ICO is 1000. You can change that in config.js. Get the address of the all the nodes by calling
    ```json
    {
-	"to":"e6ff899aabe0242e0c70441a8b28662d82284b8538d3f9fb6b11b3e9b1cad849",
-	"amount":100,
-	"type": "TRANSACTION"
-   }
+        "to":"e6ff899aabe0242e0c70441a8b28662d82284b8538d3f9fb6b11b3e9b1cad849",
+        "amount":100,
+        "type": "TRANSACTION"
+    }
    ```
 
 4. Do this 5 times, since 5 is set as the threshold for the transaction pool and can be changed in config.js. It is only when this threshold is hit, a block is generated.
