@@ -29,8 +29,7 @@ class Block {
     let hash;
     let timestamp = Date.now();
     const lastHash = lastBlock.hash;
-    let data = [];
-    data.push(_data);
+    let data = _data;
     hash = Block.hash(timestamp, lastHash, data);
     let validator = wallet.getPublicKey();
     let signature = Block.signBlockHash(hash, wallet);

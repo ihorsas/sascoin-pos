@@ -19,13 +19,7 @@ class Blockchain {
     this.validators = new Validators();
   }
 
-  addBlock(data) {
-    let block = Block.createBlock(
-      this.chain[this.chain.length - 1],
-      data,
-      new Wallet(secret)
-    );
-
+  addBlock(block) {
     this.chain.push(block);
     console.log("NEW BLOCK ADDED");
     return block;

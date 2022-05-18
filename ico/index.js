@@ -51,8 +51,12 @@ app.get("/ico/balance", (req, res) => {
   res.json({ balance: blockchain.getBalance(wallet.publicKey) });
 });
 
-app.post("/ico/balance-of", (req, res) => {
+app.get("/ico/balance-of", (req, res) => {
   res.json({ balance: blockchain.getBalance(req.body.publicKey) });
+});
+
+app.get("/ico/addresses", (req, res) => {
+  res.json({ addresses: blockchain.accounts.addresses });
 });
 
 app.listen(HTTP_PORT, () => {
