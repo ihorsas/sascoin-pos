@@ -48,6 +48,7 @@ class Stake {
         leader = address;
       }
     });
+    console.log("leader: " + leader)
     return leader;
   }
 

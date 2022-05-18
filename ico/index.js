@@ -59,6 +59,10 @@ app.get("/ico/addresses", (req, res) => {
   res.json({ addresses: blockchain.accounts.addresses });
 });
 
+app.get("/ico/balances", (req, res) => {
+  res.json({ balances: blockchain.stakes.balance });
+});
+
 app.listen(HTTP_PORT, () => {
   console.log(`Listening on port ${HTTP_PORT}`);
 });
